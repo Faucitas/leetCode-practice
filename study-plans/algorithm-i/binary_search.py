@@ -4,7 +4,7 @@ nums = [-1,0,3,5,9,12]
 target = 2
 
 
-def search(nums: List[int], target: int):
+def search(nums: List[int], target: int) -> int:
     left_pointer, right_pointer = 0, len(nums) - 1
     while left_pointer <= right_pointer:
         pivot = left_pointer + (right_pointer - left_pointer) // 2
