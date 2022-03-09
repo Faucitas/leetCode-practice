@@ -20,10 +20,27 @@ Then 4 is the first bad version.
 
 
 # The isBadVersion API is already defined for you.
-# def isBadVersion(version: int) -> bool:
+# def isBadVersion(version: int) -> bo
+bad = 2
+versions = 1
+
+def isBadVersion(version: int) -> bool:
+    return version >= bad
+
 
 class Solution:
     def firstBadVersion(self, n: int) -> int:
-        for i in range(n):
-            if isBadVersion(i):
-                return i
+        left_pointer, right_pointer = 1, n
+        while left_pointer < right_pointer:
+            pivot = left_pointer + (right_pointer - left_pointer) // 2
+            if isBadVersion(pivot):
+                print(isBadVersion(pivot))
+                right_pointer = pivot
+            else:
+                left_pointer = pivot + 1
+        return left_pointer
+
+# Driver Code
+
+first_bad_version = Solution().firstBadVersion(versions)
+print(first_bad_version)
